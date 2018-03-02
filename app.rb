@@ -38,6 +38,7 @@ end
 
   delete('/store/:id/remove_store') do
     remove_store = Store.find(params['id'].to_i)
+    remove_store.inventories.destroy_all
     remove_store.destroy
     redirect to '/'
   end
@@ -58,4 +59,11 @@ end
 
   patch('/shoe/:id/edit_shoe') do
     redirect to '/shoe/:id'
+  end
+
+  delete('/shoe/:id/remove_shoe') do
+    remove_shoe = Shoe.find(params['id'].to_i)
+    remove_shoe.inventories.destroy_all
+    remove_shoe.destroy
+    redirect to '/'
   end
