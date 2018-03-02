@@ -48,6 +48,8 @@ end
 #shoe pages
   get('/shoe/:id') do
     @shoe = Shoe.find(params['id'].to_i)
+    @formatted_price = @shoe.formatted_price
+    binding.pry
     erb:shoe
   end
 
