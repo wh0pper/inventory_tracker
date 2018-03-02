@@ -1,0 +1,40 @@
+<% @stores = Store.all %>
+<% @shoes = Shoe.all %>
+
+<div class="row">
+
+  <div class="col-md-6" id="store_list">
+    <table>
+      <tr>
+        <th>Store Name</th>
+        <th>Location</th>
+      </tr>
+      <% if @stores.empty? %>
+        <td>No stores added yet</td>
+      <% else @stores.each do |store| %>
+        <tr>
+          <td><%= store.name %></td>
+          <td><%= store.location %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="col-md-6" id="shoe_list">
+    <table>
+      <tr>
+        <th>Shoe Name</th>
+        <th>Brand</th>
+      </tr>
+      <% if @shoes.empty? %>
+        <td>No shoes added yet</td>
+      <% else @shoes.each do |shoe| %>
+        <tr>
+          <td><%= shoe.name %></td>
+          <td><%= shoe.location %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>

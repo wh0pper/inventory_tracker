@@ -5,6 +5,7 @@ describe('Store') do
     store = Store.create({:name => "Shooz 4 U"})
     shoe1 = Shoe.create({:name => "Chuck Taylor"})
     shoe2 = Shoe.create({:name => "Deluxe Boot"})
+    binding.pry
     store.shoes.push(shoe1, shoe2)
     expect(store.shoes).to(eq([shoe1, shoe2]))
     expect(store.inventories.first.shoe_id).to(eq(shoe1.id))
