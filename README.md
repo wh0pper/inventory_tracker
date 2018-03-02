@@ -4,7 +4,7 @@ Remember: the documentation, not the code, defines what a module does. -- Ken Wi
 
 # Inventory Tracker
 
-###[Jared Clemmensen](http://github.com/wh0pper) wrote this Active Record app.
+###[Jared Clemmensen](http://github.com/wh0pper) wrote this app.
 
 ## Setup
 
@@ -23,4 +23,3 @@ Open your browser and go to localhost:4567
 *Licensed under MIT license*
 
 Copyright (c) 2018 **_Jared Clemmensen_**
-
