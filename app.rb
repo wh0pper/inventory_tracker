@@ -1,5 +1,5 @@
-require("bundler/setup")
-require("pry")
+require 'bundler/setup'
+require 'pry'
 
 Bundler.require(:default)
 

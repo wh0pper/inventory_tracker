@@ -5,36 +5,61 @@
 
   <div class="col-md-6" id="store_list">
     <table>
+      <h3>Stores:</h3>
       <tr>
         <th>Store Name</th>
         <th>Location</th>
       </tr>
       <% if @stores.empty? %>
         <td>No stores added yet</td>
+        <td></td>
       <% else @stores.each do |store| %>
         <tr>
           <td><%= store.name %></td>
           <td><%= store.location %></td>
         </tr>
       <% end %>
-    </table>
+      <% end %>
+    </table><br>
+    <input type="button" class="btn btn-secondary" id="show_add_store" value="Add a store">
+    <div class="add_main" id="add_store">
+      <form action="/add_store" method="post">
+        <input type="text" name="new_store_name" placeholder="Store name">
+        <input type="text" name="new_store_brand" placeholder="Store location">
+        <button type="submit" class="btn btn-info" name="submit_store">Add</button>
+      </form>
+      <input type="button" class="btn btn-secondary" id="hide_add_store" value="Hide">
+    </div>
   </div>
 
   <div class="col-md-6" id="shoe_list">
     <table>
+      <h3>Shoes:</h3>
       <tr>
         <th>Shoe Name</th>
         <th>Brand</th>
       </tr>
       <% if @shoes.empty? %>
         <td>No shoes added yet</td>
+        <td></td>
       <% else @shoes.each do |shoe| %>
         <tr>
           <td><%= shoe.name %></td>
           <td><%= shoe.location %></td>
         </tr>
       <% end %>
-    </table>
+      <% end %>
+    </table><br>
+    <input type="button" class="btn btn-secondary" id="show_add_shoe" value="Add a shoe">
+    <div class="add_main" id="add_shoe">
+      <form action="/add_shoe" method="post">
+        <input type="text" name="new_shoe_name" placeholder="Shoe name">
+        <input type="text" name="new_shoe_brand" placeholder="Shoe brand">
+        <input type="number" name="new_shoe_name" placeholder="Shoe price">
+        <button type="submit" class="btn btn-info" name="submit_shoe">Add</button>
+      </form>
+      <input type="button" class="btn btn-secondary" id="hide_add_shoe" value="Hide">
+    </div>
   </div>
 
 </div>
