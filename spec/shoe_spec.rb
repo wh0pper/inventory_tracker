@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe('Shoe') do
   it("has many stores through inventories") do
-    shoe = Shoe.create({:name => "Chuck Taylor"})
+    shoe = Shoe.create({:name => "Chuck Taylor", :price => 49.50})
     store1 = Store.create({:name => "Shooz 4 U"})
     store2 = Store.create({:name => "Shoes! Shoes! Shoes!"})
     shoe.stores.push(store1, store2)
