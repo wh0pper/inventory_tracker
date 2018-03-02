@@ -4,7 +4,7 @@ require('sinatra/activerecord')
 also_reload('lib/**/*.rb')
 require('pry')
 require('pg')
-require('Brand')
+require('Shoe')
 require('Store')
 
 
