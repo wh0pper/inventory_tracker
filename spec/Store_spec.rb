@@ -10,3 +10,9 @@ describe('Store') do
     expect(store.inventories.first.shoe_id).to(eq(shoe1.id))
   end
 end
+
+describe(Store) do
+  it {should validate_uniqueness_of(:name)}
+
+  it {should validate_presence_of(:name)}
+end
