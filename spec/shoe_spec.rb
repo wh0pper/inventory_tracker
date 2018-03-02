@@ -9,6 +9,20 @@ describe('Shoe') do
     expect(shoe.stores).to(eq([store1, store2]))
     expect(shoe.inventories.first.store_id).to(eq(store1.id))
   end
+
+  describe('#formatted_price callback') do
+    it('has a formatted price associated with the instance but not in the database') do
+      shoe = Shoe.create({:name => "Chuck Taylor", :price => 49.5})
+      expect(shoe.formatted_price).to(eq('$49.50'))
+    end
+  end
+
+  # describe('#titleize callback') do
+  #   it('capitalizes first letter of all words in any submission') do
+  #     shoe = Shoe.create({:name => "chelsea boot"})
+  #     expect(shoe.name).to(eq('Chelsea Boot'))
+  #   end
+  # end
 end
 
 describe(Shoe) do

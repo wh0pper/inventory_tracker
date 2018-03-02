@@ -8,7 +8,14 @@ class Shoe < ActiveRecord::Base
   has_many :inventories
   has_many :stores, through: :inventories
 
-  after_initialize do |user|
-    @formatted_price = '$' + '%.2f'%self.price
+  before_create do
+    self.name = name.titleize
   end
+
+  after_initialize do |user|
+    if self.price
+      @formatted_price = '$' + '%.2f'%self.price
+    end
+  end
+
 end

@@ -9,18 +9,31 @@
     <input name='_method' type='hidden' value='delete'>
     <input type='submit' class='btn btn-danger' id='remove_store' value='Remove from system'>
   </form>
+  <input type="button" id="edit_store_button" value="Edit info">
+  <div id="edit_store_form">
+    <form action="/store/<%= @store.id %>/edit_store" method="post">
+      <input name='_method' type='hidden' value='patch'>
+      <input type="text" name="update_name" value="<%= @store.name %>">
+      <input type="text" name="update_location" value="<%= @store.location %>">
+      <button type="submit" name="update_store">Update</button>
+    </form>
+  </div>
 </div><hr>
 
 <table>
   <h4>Shoes in-stock at this store:</h4>
   <tr>
     <th>Shoe Name</th>
+    <th>Price</th>
+    <th>Inventory</th>
   </tr>
   <% if @shoes_in.empty? %>
     <td>Not any shoes yet</td>
   <% else @shoes_in.each do |shoe| %>
     <tr>
       <td><a href='/shoe/<%= shoe.id %>'><%= shoe.name %></a></td>
+      <td><%= shoe.formatted_price %></td>
+      <td><%= shoe.inventories.where({:store_id => @store.id}).first[:inventory] %></td>
     </tr>
   <% end %>
   <% end %>
@@ -28,6 +41,7 @@
 
 <h4>Send shoes to this store:</h4>
 <form class='form-group' action='/store/<%= @store.id %>/add_shoe' method='post'>
+  <label for="new_shoe">Shoe style:</label>
   <select name='new_shoe' class='form-control'>
     <option disabled selected value>--</option>
     <% @shoes.each do |shoe| %>
@@ -36,7 +50,9 @@
       <% end %>
     <% end %>
   </select><br>
+  <label for="send_quantity">Amount</label>
+  <input type="number" name="send_quantity" class="form-control"><br>
   <button type='submit' class='btn btn-secondary'>Add</button>
 </form>
-
+<hr>
 <a href='/'>Home</a>

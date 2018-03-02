@@ -9,6 +9,13 @@ describe('Store') do
     expect(store.shoes).to(eq([shoe1, shoe2]))
     expect(store.inventories.first.shoe_id).to(eq(shoe1.id))
   end
+
+  describe('#titleize callback') do
+    it('capitalizes first letter of all words in any submission') do
+      store1 = Store.create({:name => "shoes for you"})
+      expect(store1.name).to(eq('Shoes For You'))
+    end
+  end
 end
 
 describe(Store) do

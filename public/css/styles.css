@@ -23,3 +23,7 @@ tr:nth-child(even) {
 .add_main {
   display: none;
 }
+
+#edit_store_form {
+  display: none;
+}

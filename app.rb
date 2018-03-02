@@ -16,7 +16,6 @@ end
 
 post('/add_shoe') do
   new_shoe = Shoe.create({:name => params['new_shoe_name'], :price => params['new_shoe_price']}) #, :brand => params['new_shoe_brand']
-  binding.pry
   erb:index
 end
 
@@ -29,12 +28,16 @@ end
   post('/store/:id/add_shoe') do
     @store = Store.find(params['id'].to_i)
     new_shoe = Shoe.find(params['new_shoe'].to_i)
+    quantity = params['send_quantity']
     @store.shoes.push(new_shoe)
+    new_shoe.inventories.where({:store_id => @store.id}).update({:inventory => quantity})
     erb:store
   end
 
   patch('/store/:id/edit_store') do
-    redirect to '/store/:id'
+    @store = Store.find(params['id'].to_i)
+    @store.update({:name => params['update_name'], :location => params['update_location']})
+    erb:store
   end
 
   delete('/store/:id/remove_store') do
@@ -49,7 +52,6 @@ end
   get('/shoe/:id') do
     @shoe = Shoe.find(params['id'].to_i)
     @formatted_price = @shoe.formatted_price
-    binding.pry
     erb:shoe
   end
 

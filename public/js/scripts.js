@@ -19,4 +19,8 @@ $(function() {
     $('#show_add_shoe').show();
   })
 
+  $('#edit_store_button').click(function() {
+    console.log('edit clicked')
+    $('#edit_store_form').show();
+  })
 })
