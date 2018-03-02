@@ -16,13 +16,6 @@ describe('Shoe') do
       expect(shoe.formatted_price).to(eq('$49.50'))
     end
   end
-
-  # describe('#titleize callback') do
-  #   it('capitalizes first letter of all words in any submission') do
-  #     shoe = Shoe.create({:name => "chelsea boot"})
-  #     expect(shoe.name).to(eq('Chelsea Boot'))
-  #   end
-  # end
 end
 
 describe(Shoe) do

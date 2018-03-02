@@ -7,7 +7,7 @@ Remember: the documentation, not the code, defines what a module does. -- Ken Wi
 ###[Jared Clemmensen](http://github.com/wh0pper) wrote this app.
 
 #User Stories
-As a user, I want to be able to add, update, delete and list shoe stores.
+* As a user, I want to be able to add, update, delete and list shoe stores.
 * As a user, I want to be able to add and list new shoe brands. Shoe brands should include price.
 * As a user, I want to be able to add shoe brands in the application (don't worry about updating, listing or destroying shoe brands).
 * As a user, I want to be able to add existing shoe brands to a store to show where they are sold.

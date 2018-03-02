@@ -20,7 +20,10 @@ $(function() {
   })
 
   $('#edit_store_button').click(function() {
-    console.log('edit clicked')
-    $('#edit_store_form').show();
+    $('#edit_store_form').toggle();
+  })
+
+  $('#edit_shoe_button').click(function() {
+    $('#edit_shoe_form').toggle();
   })
 })

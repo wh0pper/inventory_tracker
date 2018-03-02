@@ -3,7 +3,6 @@ body {
   color: whitesmoke;
 }
 
-
 table {
   width: 100%;
   background-color: white;
@@ -24,6 +23,6 @@ tr:nth-child(even) {
   display: none;
 }
 
-#edit_store_form {
+#edit_store_form, #edit_shoe_form {
   display: none;
 }

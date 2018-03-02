@@ -8,7 +8,7 @@ class Shoe < ActiveRecord::Base
   has_many :inventories
   has_many :stores, through: :inventories
 
-  before_create do
+  before_save do
     self.name = name.titleize
   end
 

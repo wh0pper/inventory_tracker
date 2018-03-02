@@ -9,6 +9,15 @@
     <input name='_method' type='hidden' value='delete'>
     <input type='submit' class='btn btn-danger' id='remove_shoe' value='Remove from system'>
   </form>
+  <input type="button" class="btn btn-secondary" id="edit_shoe_button" value="Edit info">
+  <div id="edit_shoe_form">
+    <form action="/shoe/<%= @shoe.id %>/edit_shoe" method="post">
+      <input name='_method' type='hidden' value='patch'>
+      <input type="text" name="update_name" value="<%= @shoe.name %>">
+      <input type="text" name="update_price" value="<%= @shoe.price %>">
+      <button type="submit" class="btn btn-primary" name="update_shoe">Update</button>
+    </form>
+  </div>
 </div><hr>
 
 <table>
@@ -16,14 +25,17 @@
   <tr>
     <th>Store Name</th>
     <th>Location</th>
+    <th>Inventory</th>
   </tr>
   <% if @in_stores.empty? %>
     <td>Not in any stores yet</td>
+    <td></td>
     <td></td>
   <% else @in_stores.each do |store| %>
     <tr>
       <td><a href='/store/<%= store.id %>'><%= store.name %></a></td>
       <td><%= store.location %></td>
+      <td><%= store.inventories.where({:shoe_id => @shoe.id}).first[:inventory] %></td>
     </tr>
   <% end %>
   <% end %>
@@ -39,6 +51,8 @@
       <% end %>
     <% end %>
   </select><br>
+  <label for="send_quantity">Amount</label>
+  <input type="number" name="send_quantity" class="form-control"><br>
   <button type='submit' class='btn btn-secondary'>Add</button>
 </form>
 

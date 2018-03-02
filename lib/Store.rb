@@ -4,7 +4,7 @@ class Store < ActiveRecord::Base
   has_many :inventories
   has_many :shoes, through: :inventories
 
-  before_create do
+  before_save do
     self.name = name.titleize
   end
 end
