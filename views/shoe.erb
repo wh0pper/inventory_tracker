@@ -1,0 +1,38 @@
+<% @stores = Store.all %>
+<% @shoes = Shoe.all %>
+<% @in_stores = @shoe.stores %>
+
+<div class='shoe_info'>
+  <h2><%= @shoe.name %></h2>
+</div>
+
+<table>
+  <h4>Find this shoe in these stores:</h4>
+  <tr>
+    <th>Store Name</th>
+    <th>Location</th>
+  </tr>
+  <% if @in_stores.empty? %>
+    <td>Not in any stores yet</td>
+    <td></td>
+  <% else @in_stores.each do |store| %>
+    <tr>
+      <td><a href='/store/<%= store.id %>'><%= store.name %></a></td>
+      <td><%= store.location %></td>
+    </tr>
+  <% end %>
+  <% end %>
+</table><hr>
+
+<h4>Send shoe to new stores:</h4>
+<form class='form-group' action='/shoe/<%= @shoe.id %>/add_store' method='post'>
+  <select name='new_store' class='form-control'>
+    <option disabled selected value>--</option>
+    <% @stores.each do |store| %>
+      <% unless @in_stores.include?(store) %>
+        <option value='<%= store.id %>'><%= store.name %>, <%= store.location  %></option>
+      <% end %>
+    <% end %>
+  </select><br>
+  <button type='submit' class='btn btn-secondary'>Add</button>
+</form>

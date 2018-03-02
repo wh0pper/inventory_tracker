@@ -1,7 +1,13 @@
+body {
+  background-color: #3e454b;
+  color: whitesmoke;
+}
+
 
 table {
   width: 100%;
   background-color: white;
+  color: #51575d;
 }
 
 td, th {
