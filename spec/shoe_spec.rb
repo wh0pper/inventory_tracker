@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 describe('Shoe') do
-  it("What you are testing") do
-    expect().to(eq())
+  it("has many stores through inventories") do
+    shoe = Shoe.create({:name => "Chuck Taylor"})
+    store1 = Store.create({:name => "Shooz 4 U"})
+    store2 = Store.create({:name => "Shoes! Shoes! Shoes!"})
+    shoe.stores.push(store1, store2)
+    expect(shoe.stores).to(eq([store1, store2]))
   end
 end
