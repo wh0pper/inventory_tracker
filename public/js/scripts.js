@@ -18,4 +18,5 @@ $(function() {
     $('#add_shoe').hide();
     $('#show_add_shoe').show();
   })
+
 })

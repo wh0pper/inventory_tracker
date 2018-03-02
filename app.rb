@@ -36,6 +36,12 @@ end
     redirect to '/store/:id'
   end
 
+  delete('/store/:id/remove_store') do
+    remove_store = Store.find(params['id'].to_i)
+    remove_store.destroy
+    redirect to '/'
+  end
+
 
 #shoe pages
   get('/shoe/:id') do

@@ -4,6 +4,12 @@
 
 <div class='info_header'>
   <h2><%= @store.name %></h2>
+  <h5><%= @store.location %></h5>
+  <form class='' action='/store/<%= @store.id %>/remove_store' method='post'>
+    <input name='_method' type='hidden' value='delete'>
+    <input type='submit' class='btn btn-danger' id='remove_store' value='Remove from system'>
+  </form>
+
 </div>
 
 <table>
