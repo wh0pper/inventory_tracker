@@ -2,7 +2,7 @@
 <% @shoes = Shoe.all %>
 <% @in_stores = @shoe.stores %>
 
-<div class='shoe_info'>
+<div class='info_header'>
   <h2><%= @shoe.name %></h2>
 </div>
 
@@ -36,3 +36,5 @@
   </select><br>
   <button type='submit' class='btn btn-secondary'>Add</button>
 </form>
+
+<a href='/'>Home</a>

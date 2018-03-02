@@ -21,10 +21,14 @@ end
 
 #store pages
   get('/store/:id') do
+    @store = Store.find(params['id'].to_i)
     erb:store
   end
 
   post('/store/:id/add_shoe') do
+    @store = Store.find(params['id'].to_i)
+    new_shoe = Shoe.find(params['new_shoe'].to_i)
+    @store.shoes.push(new_shoe)
     erb:store
   end
 

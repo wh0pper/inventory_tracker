@@ -1,0 +1,37 @@
+<% @stores = Store.all %>
+<% @shoes = Shoe.all %>
+<% @shoes_in = @store.shoes %>
+
+<div class='info_header'>
+  <h2><%= @store.name %></h2>
+</div>
+
+<table>
+  <h4>Shoes in-stock at this store:</h4>
+  <tr>
+    <th>Shoe Name</th>
+  </tr>
+  <% if @shoes_in.empty? %>
+    <td>Not any shoes yet</td>
+  <% else @shoes_in.each do |shoe| %>
+    <tr>
+      <td><a href='/shoe/<%= shoe.id %>'><%= shoe.name %></a></td>
+    </tr>
+  <% end %>
+  <% end %>
+</table><hr>
+
+<h4>Send shoes to this store:</h4>
+<form class='form-group' action='/store/<%= @store.id %>/add_shoe' method='post'>
+  <select name='new_shoe' class='form-control'>
+    <option disabled selected value>--</option>
+    <% @shoes.each do |shoe| %>
+      <% unless @shoes_in.include?(shoe) %>
+        <option value='<%= shoe.id %>'><%= shoe.name %></option>
+      <% end %>
+    <% end %>
+  </select><br>
+  <button type='submit' class='btn btn-secondary'>Add</button>
+</form>
+
+<a href='/'>Home</a>
