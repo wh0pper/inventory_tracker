@@ -37,7 +37,7 @@
       <h3>Shoes:</h3>
       <tr>
         <th>Shoe Name</th>
-        <!-- <th>Brand</th> -->
+        <th>Price</th>
       </tr>
       <% if @shoes.empty? %>
         <td>No shoes added yet</td>
@@ -45,7 +45,7 @@
       <% else @shoes.each do |shoe| %>
         <tr>
           <td><a href='/shoe/<%= shoe.id %>'><%= shoe.name %></a></td>
-          <!-- <%# <td><%= shoe.location %></td> %> -->
+          <td><%= shoe.formatted_price %></td>
         </tr>
       <% end %>
       <% end %>
@@ -53,9 +53,9 @@
     <input type='button' class='btn btn-secondary' id='show_add_shoe' value='Add a shoe'>
     <div class='add_main' id='add_shoe'>
       <form action='/add_shoe' method='post'>
-        <input type='text' name='new_shoe_name' placeholder='Shoe name'>
+        <input type='text' name='new_shoe_name' placeholder='Shoe name' required>
         <!-- <input type='text' name='new_shoe_brand' placeholder='Shoe brand'> -->
-        <input type='number' name='new_shoe_price' step='0.01' placeholder='Shoe price' >
+        <input type='number' name='new_shoe_price' step='0.01' placeholder='Shoe price' required>
         <button type='submit' class='btn btn-info' name='submit_shoe'>Add</button>
       </form>
       <input type='button' class='btn btn-secondary' id='hide_add_shoe' value='Hide'>

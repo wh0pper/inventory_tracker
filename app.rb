@@ -16,6 +16,7 @@ end
 
 post('/add_shoe') do
   new_shoe = Shoe.create({:name => params['new_shoe_name'], :price => params['new_shoe_price']}) #, :brand => params['new_shoe_brand']
+  binding.pry
   erb:index
 end
 
