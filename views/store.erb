@@ -45,9 +45,9 @@
   <select name='new_shoe' class='form-control'>
     <option disabled selected value>--</option>
     <% @shoes.each do |shoe| %>
-      <% unless @shoes_in.include?(shoe) %>
+  <%#     <% unless @shoes_in.include?(shoe) %> %>
         <option value='<%= shoe.id %>'><%= shoe.name %></option>
-      <% end %>
+<%#       <% end %> %>
     <% end %>
   </select><br>
   <label for="send_quantity">Amount</label>
