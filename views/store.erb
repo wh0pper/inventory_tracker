@@ -2,6 +2,12 @@
 <% @shoes = Shoe.all %>
 <% @shoes_in = @store.shoes %>
 
+<script>
+  var shoe_info = <%= @shoes_in.to_json %>
+  var inventory_info = <%= @store.inventories.to_json %>
+  pieChart(shoe_info, inventory_info)
+</script>
+
 <div class='info_header'>
   <h2><%= @store.name %></h2>
   <h5><%= @store.location %></h5>
@@ -55,4 +61,7 @@
   <button type='submit' class='btn btn-secondary'>Add</button>
 </form>
 <hr>
+
+<div id="chart_div" align='center'></div>
+
 <a href='/'>Home</a>
