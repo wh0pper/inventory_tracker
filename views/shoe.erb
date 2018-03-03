@@ -1,10 +1,12 @@
 <% @stores = Store.all %>
 <% @shoes = Shoe.all %>
 <% @in_stores = @shoe.stores %>
+<% @total_inventory = @shoe.inventories.sum(:inventory) %>
 
 <div class='info_header'>
   <h2><%= @shoe.name %></h2>
   <h4><%= @formatted_price %></h4>
+  <h4>Total inventory: <%= @total_inventory %></h4>
   <form class='' action='/shoe/<%= @shoe.id %>/remove_shoe' method='post'>
     <input name='_method' type='hidden' value='delete'>
     <input type='submit' class='btn btn-danger' id='remove_shoe' value='Remove from system'>
