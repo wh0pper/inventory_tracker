@@ -16,3 +16,16 @@ describe 'shoe creation', {:type => :feature} do
     expect(page).to have_content('$45.00')
   end
 end
+
+describe 'shoe update and deletion', {:type => :feature} do
+  it 'takes shoe name and price, normalizes info, adds it to page' do
+    shoe = Shoe.create({:name => "Chuck Taylor", :price => 49.50})
+    visit "/shoe/#{shoe.id}"
+    click_button('Edit info')
+    fill_in('update_name', :with => 'converse')
+    click_button('Update')
+    expect(page).to have_content('Converse')
+    click_button('Remove from system')
+    expect(page).to have_no_content('Converse')
+  end
+end
