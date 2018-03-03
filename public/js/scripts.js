@@ -1,3 +1,4 @@
+
 $(function() {
   $('#show_add_store').click(function() {
     $('#add_store').slideDown();
