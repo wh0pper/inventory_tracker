@@ -4,9 +4,25 @@ Remember: the documentation, not the code, defines what a module does. -- Ken Wi
 
 # Inventory Tracker
 
-###[Jared Clemmensen](http://github.com/wh0pper) wrote this app.
+##
 
-##User Stories
+###[Jared Clemmensen](http://github.com/wh0pper) wrote this app for the Epicodus Ruby Week 4 Code Review.
+
+## Technologies Used
+This app is written using ruby and sinatra. Project database uses SQL and ActiveRecord
+
+## Setup
+* Clone to your Desktop.
+* In terminal, navigate to the root directory of the project and run:
+```
+$ bundle install
+$ rake db:create
+$ rake db:migrate
+$ ruby app.rb
+```
+* Then access the site in the browser at the localhost port provided by sinatra
+
+##Application User Stories
 * As a user, I want to be able to add, update, delete and list shoe stores.
 * As a user, I want to be able to add and list new shoe brands. Shoe brands should include price.
 * As a user, I want to be able to add shoe brands in the application (don't worry about updating, listing or destroying shoe brands).
@@ -18,19 +34,6 @@ As a user, I want store names and shoe brands to be saved with a capital letter 
 * As a user, I do not want stores and/or shoe brands to be saved if I enter a blank name.
 * As a user, I want all stores and brands to be unique. There shouldn't be two entries in the database for Blundstone.
 * As a user, I want store and brand names to have a maximum of one hundred characters.
-
-## Setup
-
-* Clone to your Desktop.
-* In terminal, navigate to the root directory of the project and run:
-```
-$ bundle install
-$ rake db:create
-$ rake db:migrate
-$ ruby app.rb
-```
-* Then access the site in the browser at the localhost port provided by sinatra
-
 
 
 ## License
